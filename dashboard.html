@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- MENU -->
+    <div class="sidebar">
+        <img src="uas.png" class="logo-side">
+
+        <a href="registro.html" class="btn-menu">Registro de maestros</a>
+        <a href="alumnos.html" class="btn-menu">Asistencia de alumnos</a>
+        <a href="login.html" class="btn-menu">Aulas de computo</a>
+
+        <a href="index.html" class="btn-menu logout">Cerrar Sesión</a>
+    </div>
+
+    <!-- CONTENIDO -->
+    <div class="main">
+
+        <div class="header">
+            CHECADOR FIC
+            <img src="fic.png" class="logo-header">
+        </div>
+
+        <div class="calendar-box">
+
+            <h2>Control de Asistencia</h2>
+
+            <!-- FILTROS -->
+            <div class="filters">
+
+                <select id="maestro">
+                    <option value="">Seleccionar maestro</option>
+                    <option>Juan Pérez</option>
+                    <option>María López</option>
+                </select>
+
+                <select id="periodo" onchange="cargarDatos()">
+                    <option value="dia">Diario</option>
+                    <option value="semana">Semanal</option>
+                    <option value="quincena">Quincenal</option>
+                    <option value="mes">Mensual</option>
+                </select>
+
+                <input type="date" id="fecha" min="1990-01-01" onchange="cargarDatos()">
+
+            </div>
+
+            <div class="calendar-header">
+    <button class="arrow" onclick="anterior()">⬅</button>
+    <h3 id="tituloFecha"></h3>
+    <button class="arrow" onclick="siguiente()">➡</button>
+</div>
+
+            <!-- 🔥 FLECHAS (AQUÍ VAN) -->
+            <div class="calendar-header">
+                <button class="arrow" onclick="anterior()">⬅</button>
+                <h3 id="tituloFecha"></h3>
+                <button class="arrow" onclick="siguiente()">➡</button>
+            </div>
+
+            <!-- CALENDARIO -->
+            <div id="calendar" class="calendar"></div>
+
+            <!-- 🔥 BOTONES FUNCIONALES -->
+            <div style="margin-top:20px;">
+                <button class="btn-yellow" onclick="registrar('asistencia')">Asistencia</button>
+                <button class="btn-yellow" onclick="registrar('falta')">Falta</button>
+                <button class="btn-yellow" onclick="registrar('justificado')">Justificante</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

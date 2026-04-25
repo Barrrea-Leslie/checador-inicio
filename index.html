@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Checador FIC</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+</style>
+
+</head>
+<body class="bg-azul">
+
+<div class="login-box">
+
+    <img src="uas.png" class="logo">
+
+    <h2>Checador FIC</h2>
+
+    <!-- LOGIN -->
+    <form id="loginForm">
+        <input type="text" id="usuario" placeholder="Usuario" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
+
+        <button type="submit" class="btn-link">INGRESAR</button>
+    </form>
+
+    <button class="btn-gray">Olvido su contraseña</button>
+
+    <!-- ABRIR MODAL -->
+    <button class="btn-gray" onclick="abrirModal()">
+        Crear cuenta nueva
+    </button>
+
+</div>
+
+<!-- MODAL REGISTRO -->
+<div class="modal" id="modalRegistro">
+    <div class="modal-content">
+
+        <img src="uas.png" class="logo">
+        <h2>Crear cuenta</h2>
+
+        <input type="text" id="nuevoUsuario" placeholder="Usuario">
+        <input type="password" id="nuevoPassword" placeholder="Contraseña">
+
+        <button onclick="registrarUsuario()">REGISTRAR</button>
+        <button onclick="cerrarModal()">Cancelar</button>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

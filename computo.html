@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Aulas de Cómputo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- MENU -->
+    <div class="sidebar">
+        <img src="uas.png" class="logo-side">
+        <a href="dashboard.html" class="btn-menu">Volver</a>
+    </div>
+
+    <!-- CONTENIDO -->
+    <div class="main">
+
+        <!-- HEADER -->
+        <div class="header">
+            AULAS DE CÓMPUTO
+            <img src="fic.png" class="logo-header">
+        </div>
+
+        <!-- CROQUIS -->
+        <div class="croquis">
+
+            <div class="aula">Aula de Cómputo A</div>
+            <div class="aula">Aula de Cómputo B</div>
+            <div class="aula">Aula de Capacitación</div>
+            <div class="aula">Auditorio</div>
+
+        </div>
+
+        <!-- BOTÓN -->
+        <div style="text-align:center; margin-top:20px;">
+            <button class="btn-yellow" onclick="abrirLogin()">Solicitar Aula</button>
+        </div>
+
+        <!-- CALENDARIO -->
+        <div class="calendar">
+            <div class="day">Lunes</div>
+            <div class="day">Martes</div>
+            <div class="day">Miércoles</div>
+            <div class="day">Jueves</div>
+            <div class="day">Viernes</div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MODAL LOGIN -->
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+        <h3>Iniciar Sesión</h3>
+        <input type="text" placeholder="Usuario">
+        <input type="password" placeholder="Contraseña">
+        <button class="btn-yellow" onclick="abrirAlumnos()">Entrar</button>
+        <p class="btn-link" onclick="abrirRegistro()">Registrarse</p>
+    </div>
+</div>
+
+<!-- MODAL ALUMNOS -->
+<div class="modal" id="alumnosModal">
+    <div class="modal-content">
+        <h3>¿Cuántos alumnos son?</h3>
+        <input type="number" id="numAlumnos">
+        <button class="btn-yellow" onclick="mostrarAulas()">Continuar</button>
+    </div>
+</div>
+
+<!-- MODAL AULAS -->
+<div class="modal" id="aulasModal">
+    <div class="modal-content">
+        <h3>Selecciona Aula</h3>
+        <div id="opcionesAulas"></div>
+
+        <select id="motivo">
+            <option>Motivo</option>
+            <option>Clase</option>
+            <option>Examen</option>
+            <option>Presentación</option>
+        </select>
+
+        <input type="date" id="fecha">
+
+        <button class="btn-yellow" onclick="abrirAlumnos()">Solicitar Aula</button>
+    </div>
+</div>
+
+<script>
+function abrirLogin() {
+    document.getElementById('loginModal').style.display = 'flex';
+}
+
+function abrirAlumnos() {
+    document.getElementById('loginModal').style.display = 'none';
+    document.getElementById('alumnosModal').style.display = 'flex';
+}
+
+function abrirRegistro() {
+    alert("Aquí iría registro");
+}
+
+function mostrarAulas() {
+    let num = document.getElementById('numAlumnos').value;
+    let cont = document.getElementById('opcionesAulas');
+    cont.innerHTML = "";
+
+    if (num <= 10) {
+        cont.innerHTML += '<button class="btn-menu">Aula de Capacitación</button>';
+    } else if (num <= 50) {
+        cont.innerHTML += '<button class="btn-menu">Aula A</button>';
+        cont.innerHTML += '<button class="btn-menu">Aula B</button>';
+    } else {
+        cont.innerHTML += '<button class="btn-menu">Auditorio</button>';
+    }
+
+    document.getElementById('alumnosModal').style.display = 'none';
+    document.getElementById('aulasModal').style.display = 'flex';
+}
+
+function confirmar() {
+    alert("Solicitud registrada");
+    document.getElementById('aulasModal').style.display = 'none';
+}
+</script>
+
+</body>
+</html>

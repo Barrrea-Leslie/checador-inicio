@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-azul">
+
+<div class="login-box">
+
+    <img src="uas.png" class="logo">
+
+    <h2>Iniciar Sesión</h2>
+
+    <input type="text" id="usuario" placeholder="Usuario">
+    <input type="password" id="password" maxlength="8" placeholder="Contraseña">
+
+    <button class="btn-yellow" onclick="entrar()">Entrar</button>
+
+    <a href="registro-user.html" class="btn-link">Crear cuenta</a>
+
+</div>
+
+<script>
+function entrar() {
+    let usuario = document.getElementById("usuario").value;
+    let password = document.getElementById("password").value;
+
+    // Caracteres NO permitidos
+    let caracteresProhibidos = /[!@#$%^&*(),.?":{}|<>]/;
+
+    if (usuario === "" || password === "") {
+        alert("Por favor completa todos los campos");
+    } else if (password.length > 8) {
+        alert("La contraseña no puede tener más de 8 caracteres");
+    } else if (caracteresProhibidos.test(password)) {
+        alert("La contraseña contiene caracteres no permitidos");
+    } else {
+        window.location.href = "computo.html";
+    }
+}
+</script>
+
+</body>
+</html>
